@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
@@ -43,13 +42,5 @@ for train_index, test_index in skf.split(X_transformed, Y):
 average_accuracy = np.mean(accuracy_scores)
 print(f"Average Accuracy across 5 folds: {average_accuracy}")
 
-pos = np.sum(Y_pred == 1)
-neu = np.sum(Y_pred == 0)
-neg = np.sum(Y_pred == -1)
-cat = ['Positive', 'Neutral', 'Negative']
-val = [pos, neu, neg]
-plt.bar(cat, val, color=['Green', 'Yellow', 'Red'])
-plt.ylabel("No. of reviews")
-plt.xlabel("Review Category")
-plt.show()
+
 
